@@ -1,0 +1,12 @@
+D:\לימודים שנה ב\Api\WebApi\Entity\bin\Debug\net10.0\Entity.deps.json
+D:\לימודים שנה ב\Api\WebApi\Entity\bin\Debug\net10.0\Entity.dll
+D:\לימודים שנה ב\Api\WebApi\Entity\bin\Debug\net10.0\Entity.pdb
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.AssemblyInfoInputs.cache
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.AssemblyInfo.cs
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.csproj.CoreCompileInputs.cache
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.sourcelink.json
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.dll
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\refint\Entity.dll
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.pdb
+D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\ref\Entity.dll

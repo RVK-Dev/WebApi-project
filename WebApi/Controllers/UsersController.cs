@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using Entity;
+using Repository;
+using Service;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,6 +12,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        UserService userService = new UserService();
         // GET: api/<UsersController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -16,87 +20,42 @@ namespace WebApi.Controllers
 
             return new string[] { "Riki", "Zeava" };
         }
-        static readonly string filePath = "file.txt";
+
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
         public ActionResult<User> Get(int id)
-            
         {
-            using (StreamReader reader = System.IO.File.OpenText(filePath))
-            {
-                string? currentUserInFile;
-                while ((currentUserInFile = reader.ReadLine()) != null)
-                {
-                    User user =
-                    JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user.Id == id)
-                        return Ok(user);
-                }
-            }
-            return NotFound();
+            User user = userService.GetUserById(id);
+            if (user != null)
+                return Ok(user);
+            else
+                return NotFound();
         }
-        
 
         // POST api/<UsersController>
         [HttpPost]
         public ActionResult<User> Post([FromBody] User user)
         {
-            int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
-            user.Id = numberOfUsers + 1;
-            string userJson = JsonSerializer.Serialize(user);
-            System.IO.File.AppendAllText(filePath, userJson +
-            Environment.NewLine);
-
-            return CreatedAtAction(nameof(Get), new { id = user.Id },user);
+            userService.Post(user);
+            return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
         }
 
         // POST api/<UsersController>
-        [HttpPost ("login")]
+        [HttpPost("login")]
         public ActionResult<User> Post([FromBody] UserLogin userLogin)
         {
-            using (StreamReader reader = System.IO.File.OpenText(filePath))
-            {
-                string? currentUserInFile;
-                while ((currentUserInFile = reader.ReadLine()) != null)
-                {
-                    User user1 = JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user1.Email == userLogin.Email && user1.Password == userLogin.Password)
-                        return user1;
-                }
-            }
-            return NoContent();
+            User user = userService.Post(userLogin);
+            if (user != null)
+                return Ok(user);
+            else
+                return NoContent();
         }
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] User userToUpdate)
+        public void Put(int id, [FromBody] User userToUpdate)
         {
-
-            string textToReplace = string.Empty;
-            using (StreamReader reader =
-            System.IO.File.OpenText(filePath))
-            {
-                string currentUserInFile;
-                while ((currentUserInFile = reader.ReadLine()) != null)
-                {
-                    User user =
-                    JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user.Id == userToUpdate.Id)
-                    {
-                        textToReplace = currentUserInFile;
-                        break;
-                    }
-                }
-            }
-            if(textToReplace != string.Empty)
-{
-                string text = System.IO.File.ReadAllText(filePath);
-                text = text.Replace(textToReplace,
-                JsonSerializer.Serialize(userToUpdate));
-                System.IO.File.WriteAllText(filePath, text);
-            }
-
-            return Ok();
+            userService.Put(id, userToUpdate);
         }
 
         // DELETE api/<UsersController>/5
@@ -106,3 +65,4 @@ namespace WebApi.Controllers
         }
     }
 }
+
