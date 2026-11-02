@@ -15,17 +15,17 @@
             align-items: center;
             background-color: aqua;
             color: chocolate
-            
         }
-        .changeDetails{
-            display:none;
-            background-color:powderblue;
-            padding:40px;
+
+        .changeDetails {
+            display: none;
+            background-color: powderblue;
+            padding: 40px;
         }
     </style>
 </head>
 <body>
-    
+
     <h1 class="title"></h1>
     <p>your login are sucssed!!</p>
     <button onclick="change()">change details</button>
@@ -48,11 +48,16 @@
         <br />
         <input required type="password" id="password" />
         <br />
+
+        <progress value="0" max="4"></progress>
+        <br />
+        <button onclick="validPassword()">check password</button>
+        <br />
         <br />
         <button onclick="put()">change</button>
 
     </div>
-   
+
 
 </body>
 </html>

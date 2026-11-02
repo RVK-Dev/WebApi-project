@@ -1,4 +1,5 @@
-﻿const title = document.querySelector(".title")
+﻿const progress = document.querySelector("progress")
+const title = document.querySelector(".title")
 const changeDetails = document.querySelector(".changeDetails")
 
 const user = sessionStorage.getItem("currentUser")
@@ -10,7 +11,7 @@ const userId = JSON.parse(user).id
 title.textContent = "Hi " + userName
 
 const change = async () => {
-   
+
     changeDetails.style.display = "block"
     const name = document.querySelector("#name")
     const lastName = document.querySelector("#lastName")
@@ -22,13 +23,13 @@ const change = async () => {
     email.value = userEmail
     password.value = userPassword
 
-    
+
 }
 
 const put = async () => {
     const name = document.querySelector("#name").value
     const user = {
-        id:userId,
+        id: userId,
         name,
         lastName: lastName.value,
         email: email.value,
@@ -45,7 +46,8 @@ const put = async () => {
             }
 
         );
-        
+        alert("you changes are succside")
+
     }
     catch (e) {
         alert(e.message)
@@ -54,5 +56,32 @@ const put = async () => {
 }
 
 
+const validPassword = async () => {
+    const password = document.querySelector("#password").value
+
+    try {
+        const response = await fetch('api/Password',
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(password)
+
+            }
+
+        );
+        if (response.ok) {
+            const numOfPass = await response.json();
+            progress.value = numOfPass
+            if (numOfPass < 2) {
+                alert("your password is not strong enagh")
+            }
+
+        }
+
+    }
+    catch (e) {
+        alert(e.message)
+    }
 
 
+}
