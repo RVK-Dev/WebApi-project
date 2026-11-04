@@ -10,3 +10,15 @@ D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.dll
 D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\refint\Entity.dll
 D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.pdb
 D:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\ref\Entity.dll
+E:\לימודים שנה ב\Api\WebApi\Entity\bin\Debug\net10.0\Entity.deps.json
+E:\לימודים שנה ב\Api\WebApi\Entity\bin\Debug\net10.0\Entity.dll
+E:\לימודים שנה ב\Api\WebApi\Entity\bin\Debug\net10.0\Entity.pdb
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.AssemblyInfoInputs.cache
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.AssemblyInfo.cs
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.csproj.CoreCompileInputs.cache
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.sourcelink.json
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.dll
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\refint\Entity.dll
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\Entity.pdb
+E:\לימודים שנה ב\Api\WebApi\Entity\obj\Debug\net10.0\ref\Entity.dll

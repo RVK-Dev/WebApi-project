@@ -4,8 +4,9 @@ using System.Text.Json;
 
 namespace Repository
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
+
         readonly string filePath = "D:\\לימודים שנה ב\\Api\\WebApi\\Repository\\file.txt";
         public User GetUserById(int id)
         {
@@ -23,7 +24,7 @@ namespace Repository
             return null;
         }
 
-        public User Post( User user)
+        public User Post(User user)
         {
             int numberOfUsers = System.IO.File.ReadLines(filePath).Count();
             user.Id = numberOfUsers + 1;
@@ -33,7 +34,7 @@ namespace Repository
             return user;
         }
 
-        public User Post( UserLogin userLogin)
+        public User Post(UserLogin userLogin)
         {
             using (StreamReader reader = System.IO.File.OpenText(filePath))
             {
