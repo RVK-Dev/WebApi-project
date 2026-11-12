@@ -3,6 +3,7 @@ using System.Text.Json;
 using Entity;
 using Repository;
 using Service;
+using System.Diagnostics.Eventing.Reader;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,6 +13,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        PasswordService passwordService = new PasswordService();
 
         IUserService userService;
         public UsersController(IUserService userService)
@@ -43,6 +45,11 @@ namespace WebApi.Controllers
         [HttpPost]
         public ActionResult<User> Post([FromBody] User user)
         {
+            
+            int StrengthOfPassword = passwordService.Post(user.Password);
+            if (StrengthOfPassword < 3)
+                return BadRequest();
+
             userService.Post(user);
             return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
         }
@@ -60,9 +67,14 @@ namespace WebApi.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] User userToUpdate)
+        public ActionResult Put(int id, [FromBody] User userToUpdate)
         {
+            int StrengthOfPassword = passwordService.Post(userToUpdate.Password);
+            if (StrengthOfPassword < 3)
+                return BadRequest();
+            
             userService.Put(id, userToUpdate);
+            return Ok();
         }
 
         // DELETE api/<UsersController>/5

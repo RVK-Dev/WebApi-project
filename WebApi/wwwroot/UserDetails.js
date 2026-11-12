@@ -46,7 +46,16 @@ const put = async () => {
             }
 
         );
-        alert("you changes are succside")
+        if (response.ok) {
+
+            alert("you changes are succside")
+
+        }
+        else {
+            throw Error("your changes was failed");
+
+        }
+       
 
     }
     catch (e) {

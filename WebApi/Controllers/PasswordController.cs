@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Zxcvbn;
+using Entity;
+using Repository;
+using Service;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -9,6 +12,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class PasswordController : ControllerBase
     {
+        PasswordService passwordService = new PasswordService();
         // GET: api/<PasswordController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -27,7 +31,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] string password)
         {
-            int res = Zxcvbn.Core.EvaluatePassword(password).Score;
+            int res = passwordService.Post(password);
             return Ok(res);
         }
 

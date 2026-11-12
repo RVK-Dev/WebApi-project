@@ -9,10 +9,19 @@
       "Service/1.0.0": {
         "dependencies": {
           "Entity": "1.0.0",
-          "Repository": "1.0.0"
+          "Repository": "1.0.0",
+          "zxcvbn-core": "7.0.92"
         },
         "runtime": {
           "Service.dll": {}
+        }
+      },
+      "zxcvbn-core/7.0.92": {
+        "runtime": {
+          "lib/netstandard2.0/zxcvbn-core.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.92.0"
+          }
         }
       },
       "Entity/1.0.0": {
@@ -41,6 +50,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "zxcvbn-core/7.0.92": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3CKGKJe4SnFrks38EuF4iq1DT6IqsyNu/zMQp9GOpaipb7qdZndjjTXQa1/dkNh/OoxD0/aTcIBrRrbD4ALeGQ==",
+      "path": "zxcvbn-core/7.0.92",
+      "hashPath": "zxcvbn-core.7.0.92.nupkg.sha512"
     },
     "Entity/1.0.0": {
       "type": "project",
