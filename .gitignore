@@ -1,4 +1,6 @@
 WebApi/obj/
 WebApi/bin/
 .vs/
+bin/
+obj/
 
