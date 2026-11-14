@@ -13,12 +13,12 @@ namespace WebApi.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        PasswordService passwordService = new PasswordService();
-
+        IPasswordService passwordService;
         IUserService userService;
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, IPasswordService passwordService)
         {
           this.userService = userService;
+            this.passwordService = passwordService;
 
         }
 

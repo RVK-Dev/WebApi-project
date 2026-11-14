@@ -12,7 +12,11 @@ namespace WebApi.Controllers
     [ApiController]
     public class PasswordController : ControllerBase
     {
-        PasswordService passwordService = new PasswordService();
+        IPasswordService passwordService;
+        public PasswordController(IPasswordService passwordService)
+        {
+            this.passwordService = passwordService;
+        }
         // GET: api/<PasswordController>
         [HttpGet]
         public IEnumerable<string> Get()

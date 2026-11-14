@@ -6,9 +6,9 @@ using Zxcvbn;
 
 namespace Service
 {
-    public class PasswordService
+    public class PasswordService : IPasswordService
     {
-        public int Post( string password)
+        public int Post(string password)
         {
             int res = Zxcvbn.Core.EvaluatePassword(password).Score;
             return res;
