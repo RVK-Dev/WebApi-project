@@ -31,6 +31,7 @@ const put = async () => {
     const user = {
         id: userId,
         name,
+        //Where do lastName, email and password come from? They are not defined in put()
         lastName: lastName.value,
         email: email.value,
         password: password.value

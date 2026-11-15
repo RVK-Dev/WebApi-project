@@ -53,6 +53,7 @@ const post = async () => {
 const get = async () => {
 
 
+    //In JavaScript, variables are written in camelCase: email, password, userLogin.
     const Email = document.querySelector("#email1").value
     const Password = document.querySelector("#password1").value
 
