@@ -46,6 +46,7 @@ namespace WebApi.Controllers
         public ActionResult<User> Post([FromBody] User user)
         {
             
+            //In C#, local variables are written in camelCase: strengthOfPassword.
             int StrengthOfPassword = passwordService.Post(user.Password);
             if (StrengthOfPassword < 3)
                 return BadRequest();
@@ -69,6 +70,7 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] User userToUpdate)
         {
+            //In C#, local variables are written in camelCase: strengthOfPassword.
             int StrengthOfPassword = passwordService.Post(userToUpdate.Password);
             if (StrengthOfPassword < 3)
                 return BadRequest();
