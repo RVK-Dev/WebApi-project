@@ -1,3 +1,5 @@
+using Entity.Models;
+using Microsoft.EntityFrameworkCore;
 using Repository;
 using Service;
 
@@ -14,6 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddTransient<IUserService, UserService >();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IPasswordService, PasswordService>();
+builder.Services.AddDbContext<StoreExContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString
+    ("Data Source=srv2\\pupils;Initial Catalog=Store-Ex;Integrated Security=True;Trust Server Certificate=True")), ServiceLifetime.Transient);
 var app = builder.Build();
 
 app.UseHttpsRedirection();

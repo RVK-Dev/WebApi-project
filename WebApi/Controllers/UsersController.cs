@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using Entity;
+using Entity.Models;
 using Repository;
 using Service;
 using System.Diagnostics.Eventing.Reader;
@@ -32,9 +33,9 @@ namespace WebApi.Controllers
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public ActionResult<User> Get(int id)
+        public  async Task<ActionResult<User>> Get(int id)
         {
-            User user = userService.GetUserById(id);
+            User user =  await userService.GetUserById(id);
             if (user != null)
                 return Ok(user);
             else
@@ -43,22 +44,22 @@ namespace WebApi.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
-        public ActionResult<User> Post([FromBody] User user)
+        public async Task<ActionResult<User>> Post([FromBody] User user)
         {
             
             int StrengthOfPassword = passwordService.Post(user.Password);
             if (StrengthOfPassword < 3)
                 return BadRequest();
 
-            userService.Post(user);
+           await userService.Post(user);
             return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
         }
 
         // POST api/<UsersController>
         [HttpPost("login")]
-        public ActionResult<User> Post([FromBody] UserLogin userLogin)
+        public async Task<ActionResult<User>> Post([FromBody] UserLogin userLogin)
         {
-            User user = userService.Post(userLogin);
+            User user =await userService.Post(userLogin);
             if (user != null)
                 return Ok(user);
             else
@@ -67,13 +68,13 @@ namespace WebApi.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] User userToUpdate)
+        public async Task<ActionResult> Put(int id, [FromBody] User userToUpdate)
         {
             int StrengthOfPassword = passwordService.Post(userToUpdate.Password);
             if (StrengthOfPassword < 3)
                 return BadRequest();
-            
-            userService.Put(id, userToUpdate);
+
+            await userService.Put(id, userToUpdate);
             return Ok();
         }
 
