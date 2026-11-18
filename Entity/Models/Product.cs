@@ -20,4 +20,6 @@ public partial class Product
     public string ImageName { get; set; }
 
     public virtual Category Category { get; set; }
+
+    public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 }
