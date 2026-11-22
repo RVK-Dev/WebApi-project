@@ -53,13 +53,13 @@ const post = async () => {
 const get = async () => {
 
 
-    const Email = document.querySelector("#email1").value
-    const Password = document.querySelector("#password1").value
+    const email = document.querySelector("#email1").value
+    const password = document.querySelector("#password1").value
 
     const UserLogin = {
 
-        Email,
-        Password
+        email,
+        password
     };
     try {
     const response = await fetch('api/Users/login',

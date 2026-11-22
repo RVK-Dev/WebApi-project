@@ -70,8 +70,8 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] User userToUpdate)
         {
-            int StrengthOfPassword = passwordService.Post(userToUpdate.Password);
-            if (StrengthOfPassword < 3)
+            int strengthOfPassword = passwordService.Post(userToUpdate.Password);
+            if (strengthOfPassword < 3)
                 return BadRequest();
 
             await userService.Put(id, userToUpdate);
