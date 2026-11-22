@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Entity\Entity.csproj" />
+    <!--The assignment asks the controller to use the service, not the repository: the API project references Services, and Services references Repositories-->
     <ProjectReference Include="..\Repository\Repository.csproj" />
     <ProjectReference Include="..\Service\Service.csproj" />
   </ItemGroup>
