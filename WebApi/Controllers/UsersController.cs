@@ -3,6 +3,7 @@ using System.Text.Json;
 using Entity;
 using Repository;
 using Service;
+//This using isn't used in this file: you can remove it
 using System.Diagnostics.Eventing.Reader;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -46,6 +47,7 @@ namespace WebApi.Controllers
         public ActionResult<User> Post([FromBody] User user)
         {
             
+            //In C#, local variables are written in camelCase: strengthOfPassword
             int StrengthOfPassword = passwordService.Post(user.Password);
             if (StrengthOfPassword < 3)
                 return BadRequest();
@@ -69,6 +71,7 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] User userToUpdate)
         {
+            //In C#, local variables are written in camelCase: strengthOfPassword
             int StrengthOfPassword = passwordService.Post(userToUpdate.Password);
             if (StrengthOfPassword < 3)
                 return BadRequest();

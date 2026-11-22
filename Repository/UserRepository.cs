@@ -7,6 +7,7 @@ namespace Repository
     public class UserRepository : IUserRepository
     {
 
+        //A full path on your own disk only works on your computer: use a path relative to the project instead
         readonly string filePath = "D:\\לימודים שנה ב\\Api\\WebApi\\Repository\\file.txt";
         public User GetUserById(int id)
         {
