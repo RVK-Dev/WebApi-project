@@ -24,8 +24,8 @@ namespace Repository
         public async Task<User> Post(User user)
         {
            await _dbContent.Users.AddAsync(user);
-            await _dbContent.SaveChangesAsync();
-            return user;
+           await _dbContent.SaveChangesAsync();
+           return user;
   
         }
 
